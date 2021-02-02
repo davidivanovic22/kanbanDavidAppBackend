@@ -49,19 +49,6 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void addStatusList(Integer projectId, List<Status> statusList) {
-        Project project = findById(projectId);
-        List<Status> statusList1 = new ArrayList<>();
-        project.getStatusList().forEach(status -> {
-            statusList1.add(status);
-        });
-        statusList.forEach(status -> {
-            statusList1.add(status);
-        });
-        project.setStatusList(statusList1);
-        save(project);
-    }
-    @Override
     public List<Status> saveStatusList(Integer projectId, List<Status> statusList) {
         Project project = findById(projectId);
         project.setStatusList(statusList);

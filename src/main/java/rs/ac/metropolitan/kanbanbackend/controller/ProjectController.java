@@ -41,12 +41,6 @@ public class ProjectController {
 		return ResponseEntity.status(201).body(projectService.saveStatusList(projectId, statusList));
 	}
 
-
-	@PostMapping("/{projectId}/statusColumnList")
-	public void addStatusList(@PathVariable Integer projectId, @RequestBody List<Status> statusList) {
-		projectService.addStatusList(projectId, statusList);
-	}
-
 	@PostMapping("/{projectId}/userList")
 	public ResponseEntity<List<User>> saveUserList(@PathVariable Integer projectId, @RequestBody List<User> userList) {
 		return ResponseEntity.status(201).body(projectService.saveUserList(projectId, userList));
