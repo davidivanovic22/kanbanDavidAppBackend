@@ -12,8 +12,6 @@ public class Kanban {
 
     public static void main(String[] args) {
         SpringApplication.run(Kanban.class, args);
-        ZoneId z = ZoneId.systemDefault() ;
-        System.out.println(z);
     }
 
 }
