@@ -49,7 +49,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void saveStatusList(Integer projectId, List<Status> statusList) {
+    public void addStatusList(Integer projectId, List<Status> statusList) {
         Project project = findById(projectId);
         List<Status> statusList1 = new ArrayList<>();
         project.getStatusList().forEach(status -> {
@@ -61,6 +61,13 @@ public class ProjectServiceImpl implements ProjectService {
         project.setStatusList(statusList1);
         save(project);
     }
+    @Override
+    public List<Status> saveStatusList(Integer projectId, List<Status> statusList) {
+        Project project = findById(projectId);
+        project.setStatusList(statusList);
+        return save(project).getStatusList();
+    }
+
 
     @Override
     public List<User> saveUserList(Integer projectId, List<User> userList) {

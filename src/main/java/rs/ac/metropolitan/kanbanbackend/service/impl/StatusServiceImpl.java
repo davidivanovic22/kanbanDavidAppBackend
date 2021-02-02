@@ -34,6 +34,22 @@ public class StatusServiceImpl implements StatusService {
     }
 
     @Override
+    public List<Status> findAllWithoutDuplicate(Integer projectId) {
+        List<StatusTaskDTO> statusTaskDTOList = findStatusTaskDTOListByProjectId(projectId);
+        List<Status> statusList = new ArrayList<>();
+        List<Status> statusList1 = new ArrayList<>();
+        statusTaskDTOList.forEach(statusTaskDTO -> {
+            statusList.add(statusTaskDTO.getStatus());
+        });
+        findAll().forEach(status -> {
+            if(!statusList.contains(status)){
+                statusList1.add(status);
+            }
+        });
+        return statusList1;
+    }
+
+    @Override
     public Status findById(Integer statusId) {
         return statusRepository.findById(statusId)
                 .orElseThrow(() -> new NoSuchElementException("StatusService.notFound"));
@@ -86,7 +102,7 @@ public class StatusServiceImpl implements StatusService {
         });
 
         return statusTaskDTOList;
-}
+    }
 
     @Override
     public void saveStatusTaskDTO(StatusTaskDTO statusTaskDTO) {

@@ -20,6 +20,11 @@ public class StatusController {
 		return ResponseEntity.ok(statusService.findAll());
 	}
 
+	@GetMapping("/{projectId}/withoutDuplicate")
+	public ResponseEntity<List<Status>> getAllWithoutDuplicate(@PathVariable Integer projectId) {
+		return ResponseEntity.ok(statusService.findAllWithoutDuplicate(projectId));
+	}
+
 	@GetMapping("/{statusId}")
 	public ResponseEntity<Status> getById(@PathVariable Integer statusId) {
 		return ResponseEntity.ok(statusService.findById(statusId));

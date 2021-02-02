@@ -19,7 +19,9 @@ public  interface ProjectService {
 
 	void deleteById(Integer projectID);
 
-	void saveStatusList(Integer projectId, List<Status> status);
+	List<Status> saveStatusList(Integer projectId, List<Status> status);
+
+	void addStatusList(Integer projectId, List<Status> statusList);
 
 	List<User> saveUserList(Integer projectId, List<User> userList);
 

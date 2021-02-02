@@ -10,6 +10,8 @@ public  interface StatusService {
 
 	List<Status> findAll();
 
+	List<Status> findAllWithoutDuplicate(Integer projectId);
+
 	Status save(Status status);
 
 	Status update(Status status);
