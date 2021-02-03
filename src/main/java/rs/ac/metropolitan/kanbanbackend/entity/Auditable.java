@@ -27,6 +27,6 @@ public abstract class Auditable implements Serializable {
 	private LocalDateTime lastModifiedDate;
 	@LastModifiedBy
 	private String lastModifiedBy;
-	private Integer recordStatus = 1;
+	private Integer recordStatus;
 
 }

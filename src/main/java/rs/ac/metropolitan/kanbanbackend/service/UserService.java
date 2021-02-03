@@ -14,6 +14,8 @@ public  interface UserService {
 
 	User update(User user);
 
+	User updateRecordStatus(Integer userId, Integer recordStatus);
+
 	User findById(Integer userId);
 
 	User findByUsername(String username);

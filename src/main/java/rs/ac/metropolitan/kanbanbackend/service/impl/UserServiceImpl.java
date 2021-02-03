@@ -45,9 +45,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User update(User user) {
         user = findById(user.getUserId());
-        user.setProjectList(user.getProjectList());
-        user.setRecordStatus(user.getRecordStatus());
         return userRepository.save(user);
+    }
+
+    @Override
+    public User updateRecordStatus(Integer userId, Integer recordStatus) {
+        User user = findById(userId);
+        user.setRecordStatus(recordStatus);
+        return save(user);
     }
 
     @Override
